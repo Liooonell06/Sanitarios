@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito | Nombre de tu Empresa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .carrito-contenedor {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .producto-carrito {
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .producto-carrito h3 {
+      margin: 0;
+      color: #004aad;
+    }
+
+    .producto-carrito p {
+      margin: 0;
+    }
+
+    .total {
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: right;
+      font-size: 1.2em;
+    }
+
+    #vaciar-carrito {
+      background-color: red;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Carrito de Compras</h1>
+  </header>
+
+  <div class="carrito-contenedor">
+    <div id="productos-carrito"></div>
+
+    <div class="total">
+      Total: $<span id="total">0.00</span>
+    </div>
+
+    <button id="vaciar-carrito">Vaciar carrito</button>
+  </div>
+
+  <script>
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const productosCarrito = document.getElementById('productos-carrito');
+    const totalElemento = document.getElementById('total');
+    const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+
+    // Mostrar los productos en el carrito
+    function mostrarCarrito() {
+      productosCarrito.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('producto-carrito');
+        div.innerHTML = `
+          <h3>${item.nombre}</h3>
+          <p>$${item.precio.toFixed(2)}</p>
+        `;
+        productosCarrito.appendChild(div);
+        total += item.precio;
+      });
+
+      totalElemento.textContent = total.toFixed(2);
+    }
+
+    // Vaciar carrito
+    vaciarCarritoBtn.addEventListener('click', () => {
+      carrito = [];
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      mostrarCarrito();
+    });
+
+    mostrarCarrito();
+  </script>

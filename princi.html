@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanitarios Lionel</title>
+  <style>
+    * {
+      color: white;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      font-family: Arial, sans-serif;
+        background: url("./img/WhatsApp\ Image\ 2025-04-12\ at\ 11.11.03.jpeg") no-repeat center center fixed;
+        background-size: cover;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        backdrop-filter: blur(4px)
+    }
+
+    header {
+      background-color: #2f3235;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* ===== MENÚ DESPLEGABLE ===== */
+    nav {
+      background-color: #000000;
+      position: relative;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .menu-icon {
+      display: none;
+      padding: 15px;
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+      text-align: right;
+    }
+
+    ul.menu {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    ul.menu li a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    ul.menu li a:hover {
+      background-color: #000000;
+    }
+
+    /* ===== SECCIONES ===== */
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #ffee00;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #000000;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #2f3235;
+      text-align: center;
+      padding: 20px;
+      color: #eee;
+      font-size: 0.9em;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+        background-color: #003880;
+      }
+
+      ul.menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #003880;
+      }
+
+      .menu-toggle:checked + .menu-icon + ul.menu {
+        display: flex;
+      }
+
+      ul.menu li a {
+        text-align: center;
+        border-top: 1px solid #0055cc;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bienvenidos a Sanitarios Lionel</h1>
+    <p>Tu espacio para productos de calidad y atención personalizada</p>
+  </header>
+
+  <nav>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+    <ul class="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#tienda">Tienda</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section id="inicio">
+    <h2>Sobre Nosotros</h2>
+    <p>En [Nombre de tu Empresa] trabajamos cada día para ofrecerte productos de calidad, atención personalizada y una experiencia de compra única. Somos más que una tienda: somos tu aliado para encontrar lo que necesitas con confianza y seguridad.</p>
+  </section>
+
+  <section id="tienda">
+    <h2>Nuestra Tienda</h2>
+    <p>Explora nuestra tienda online y descubre una amplia variedad de productos cuidadosamente seleccionados para ti. Revisa las novedades, aprovecha promociones y compra fácil y seguro.</p>
+    <a class="btn" href="tienda.html">Ir a la Tienda</a>
+  </section>
+
+  <section id="contacto">
+    <h2>Contáctanos</h2>
+    <p>¿Tienes dudas, sugerencias o necesitas ayuda? Estamos aquí para ti.</p>
+    <ul>
+      <li><strong>Email:</strong> contacto@tuempresa.com</li>
+      <li><strong>WhatsApp:</strong> +34 123 456 789</li>
+      <li><strong>Horario:</strong> Lunes a Viernes, de 9:00 a 18:00</li>
+    </ul>
+    <a class="btn" href="mailto:contacto@tuempresa.com">Escríbenos Ahora</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sanitarios Lionel. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

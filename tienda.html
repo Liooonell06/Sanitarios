@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda | Nombre de tu Empresa</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url("./img/WhatsApp\ Image\ 2025-04-12\ at\ 11.11.03.jpeg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #000000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #252627;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background-color: #000000;
+    }
+
+    .contenedor-tienda {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .producto {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+
+    .producto:hover {
+      transform: scale(1.02);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .info-producto {
+      padding: 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-producto h3 {
+      margin-bottom: 10px;
+      color: #004aad;
+    }
+
+    .precio {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .btn-comprar {
+      background-color: #222324;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: auto;
+    }
+
+    .btn-comprar:hover {
+      background-color: #00337d;
+    }
+
+    #boton-carrito {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #000000;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    #boton-carrito:hover {
+      background-color: #00337d;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tienda Online</h1>
+    <p>Explora nuestras categorías de productos</p>
+  </header>
+
+  <!-- Menú de navegación -->
+  <nav>
+    <a href="tienda.html?categoria=electronica">PVC</a>
+    <a href="tienda.html?categoria=ropa">PPN</a>
+    <a href="tienda.html?categoria=accesorios">ACCESORIOS DE RIEGO</a>
+    <a href="tienda.html?categoria=hogar">FUSION</a>
+    <a href="tienda.html?categoria=deportes">AWADUCT</a>
+  </nav>
+
+  <!-- Contenedor de productos -->
+  <div class="contenedor-tienda" id="contenedor-tienda">
+    <!-- Aquí se llenarán los productos con JavaScript -->
+  </div>
+
+  <button id="boton-carrito" onclick="window.location.href='carrito.html'">🛒</button>
+
+  <script>
+    const productosElectronica = [
+      { nombre: 'Caños', precio: 999.99, imagen: 'https://th.bing.com/th/id/OIP.ByTzVmuJ8BlicYaiY5MTMgHaHa?w=1000&h=1000&rs=1&pid=ImgDetMain' },
+      { nombre: 'Codo', precio: 599.99, imagen: 'https://ferreteriavidri.com/images/items/large/128835.jpg' },
+    ];
+
+    const productosRopa = [
+      { nombre: 'Codo', precio: 19.99, imagen: 'https://th.bing.com/th/id/OIP.MKreTVapo0if8USpVyMZCQAAAA?rs=1&pid=ImgDetMain' },
+      { nombre: 'Union Doble', precio: 49.99, imagen: 'https://th.bing.com/th/id/OIP.E-aCqwqiYVTOZviybpYqUwHaHa?rs=1&pid=ImgDetMain' },
+    ];
+
+    const productosAccesorios = [
+      { nombre: 'Manguera de riego', precio: 29.99, imagen: 'https://http2.mlstatic.com/D_NQ_NP_899806-MLM43982364654_112020-F.jpg' },
+      { nombre: 'Espiga con rosca Macho', precio: 89.99, imagen: 'https://www.ropelato.com.ar/14510-medium_default/espiga-con-rosca-macho-11-4-624.jpg' },
+    ];
+
+    const productosHogar = [
+      { nombre: 'Codo', precio: 499.99, imagen: 'https://th.bing.com/th/id/OIP.oxR64V4d1-FCUk1lRoOzvAHaHM?rs=1&pid=ImgDetMain' },
+      { nombre: 'Tee', precio: 79.99, imagen: 'https://construccionviaweb.com.ar/Termofusion-Codos-Tes-Cuplas-Llaves/Tee-Normal-Termofusion.webp' },
+    ];
+
+    const productosDeportes = [
+      { nombre: 'Buje de reduccion', precio: 25.99, imagen: 'https://d2r9epyceweg5n.cloudfront.net/stores/002/111/248/products/buje-red1-995f441e8cd370f39116743069634566-1024-1024.jpeg' },
+      { nombre: 'Ramal', precio: 120.99, imagen: 'https://th.bing.com/th/id/R.dcf6cd44619fdd34120b6f17eabffef6?rik=JoBvN0k3B8%2fmAA&pid=ImgRaw&r=0' },
+    ];
+
+    // Obtener el parámetro de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoria = urlParams.get('categoria');
+    
+    let productos = [];
+
+    if (categoria === 'electronica') {
+      productos = productosElectronica;
+    } else if (categoria === 'ropa') {
+      productos = productosRopa;
+    } else if (categoria === 'accesorios') {
+      productos = productosAccesorios;
+    } else if (categoria === 'hogar') {
+      productos = productosHogar;
+    } else if (categoria === 'deportes') {
+      productos = productosDeportes;
+    } else {
+      // Si no se especifica categoría, mostrar todos los productos
+      productos = [...productosElectronica, ...productosRopa, ...productosAccesorios, ...productosHogar, ...productosDeportes];
+    }
+
+    // Mostrar los productos
+    const contenedorTienda = document.getElementById('contenedor-tienda');
+
+    function mostrarProductos() {
+      contenedorTienda.innerHTML = '';
+      productos.forEach(producto => {
+        const div = document.createElement('div');
+        div.classList.add('producto');
+        div.dataset.nombre = producto.nombre;
+        div.dataset.precio = producto.precio;
+
+        div.innerHTML = `
+          <img src="${producto.imagen}" alt="${producto.nombre}">
+          <div class="info-producto">
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion || 'Descripción breve del producto.'}</p>
+            <p class="precio">$${producto.precio}</p>
+            <button class="btn-comprar">Agregar al carrito</button>
+          </div>
+        `;
+        contenedorTienda.appendChild(div);
+      });
+
+      // Añadir funcionalidad de carrito
+      const botones = document.querySelectorAll('.btn-comprar');
+      botones.forEach(boton => {
+        boton.addEventListener('click', () => {
+          const producto = boton.closest('.producto');
+          const nombre = producto.dataset.nombre;
+          const precio = parseFloat(producto.dataset.precio);
+          
+          let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+          carrito.push({ nombre, precio });
+          localStorage.setItem('carrito', JSON.stringify(carrito));
+        });
+      });
+    }
+
+    mostrarProductos();
+</script>
+ 
+</body>
+</html>
